@@ -1,0 +1,8 @@
+spring:
+    application:
+        name: spring-boot-with-elastic-in-action
+    data:
+        elasticsearch:
+            client:
+                rest:
+                    urls: localhost:9200

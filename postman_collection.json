@@ -1,0 +1,118 @@
+{
+	"info": {
+		"_postman_id": "6ef1a7f1-6784-48a8-837d-0223eab1d9a5",
+		"name": "Spring Boot with Elasticsearch in Action",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27659715"
+	},
+	"item": [
+		{
+			"name": "create_new_item",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"content\": \"Some test 1\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/items",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_items_by_content",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/items/test",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"items",
+						"test"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_all_items",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/items",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete_item_by_id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/items/42295251-1802-4c14-ac32-53032ce93d17",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"items",
+						"42295251-1802-4c14-ac32-53032ce93d17"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "http://localhost:8080",
+			"type": "string"
+		}
+	]
+}
