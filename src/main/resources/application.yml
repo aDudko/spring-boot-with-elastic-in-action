@@ -1,8 +1,24 @@
+server:
+    port: 8080
+
+logging:
+    level:
+        root: INFO
+
 spring:
     application:
         name: spring-boot-with-elastic-in-action
-    data:
-        elasticsearch:
-            client:
-                rest:
-                    urls: localhost:9200
+    elasticsearch:
+        uris: http://localhost:9200
+
+management:
+    server:
+        port: 8282
+    endpoints:
+        web:
+            base-path: /mng
+            exposure:
+                include: '*'
+    endpoint:
+        health:
+            show-details: always

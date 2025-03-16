@@ -4,15 +4,18 @@ import com.dudko.example.model.Item;
 
 import java.util.List;
 
-
 public interface ItemService {
 
     Item save(Item item);
 
-    List<Item> findByContent(String term);
+    Item getById(String id);
 
-    List<Item> findAll();
+    List<Item> getByContent(String term);
 
-    void delete(String id);
+    List<Item> getAll(int pageNumber, int pageSize);
+
+    Item update(Item item);
+
+    void deleteById(String id);
 
 }

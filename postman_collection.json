@@ -7,13 +7,32 @@
 	},
 	"item": [
 		{
+			"name": "get_items_by_content",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/items/search/tests",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"items",
+						"search",
+						"tests"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "create_new_item",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"content\": \"Some test 1\"\n}",
+					"raw": "{\n    \"contentDto\": \"Some test 1\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -33,18 +52,19 @@
 			"response": []
 		},
 		{
-			"name": "get_items_by_content",
+			"name": "get_items_by_id",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{host}}/items/test",
+					"raw": "{{host}}/items/get/fec43e7f-872c-4192-962f-5a82dd73c2dc",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
 						"items",
-						"test"
+						"get",
+						"fec43e7f-872c-4192-962f-5a82dd73c2dc"
 					]
 				}
 			},
@@ -56,12 +76,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{host}}/items",
+					"raw": "{{host}}/items/0/10",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
-						"items"
+						"items",
+						"0",
+						"10"
 					]
 				}
 			},
@@ -73,13 +95,40 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{host}}/items/42295251-1802-4c14-ac32-53032ce93d17",
+					"raw": "{{host}}/items/fec43e7f-872c-4192-962f-5a82dd73c2dc",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
 						"items",
-						"42295251-1802-4c14-ac32-53032ce93d17"
+						"fec43e7f-872c-4192-962f-5a82dd73c2dc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update_item",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"id\": \"fec43e7f-872c-4192-962f-5a82dd73c2dc\",\n        \"contentDto\": {\n            \"content\": \"Some test 2\"\n        }\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/items/update",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"items",
+						"update"
 					]
 				}
 			},

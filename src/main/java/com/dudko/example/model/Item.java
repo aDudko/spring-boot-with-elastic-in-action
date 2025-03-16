@@ -1,14 +1,20 @@
 package com.dudko.example.model;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.elasticsearch.annotations.Document;
-import org.springframework.data.elasticsearch.annotations.Field;
-import org.springframework.data.elasticsearch.annotations.FieldType;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotBlank;
+import lombok.Builder;
+import lombok.Data;
 
 import java.util.UUID;
 
+@Data
+@Builder
+public class Item {
 
-@Document(indexName = "items")
-public record Item(
-        @Id UUID id,
-        @Field(type = FieldType.Text, name = "content") String content) {}
+    @NotBlank
+    private UUID id;
+
+    @Valid
+    private Content content;
+
+}

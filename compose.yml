@@ -13,5 +13,28 @@ services:
             - "ES_JAVA_OPTS=-Xms2g -Xmx2g"
         ports:
             - "9200:9200"
+        healthcheck:
+            test: [ "CMD-SHELL", "curl -f http://localhost:9200 || exit 1" ]
+            interval: 10s
+            retries: 5
         volumes:
             - "./volumes/es_data:/usr/share/elasticsearch/data"
+        networks:
+            - ${GLOBAL_NETWORK:-service}
+
+    spring-boot-elasticsearch:
+        image: anatolydudko/spring-boot-with-elastic-in-action:3.4.3-8.17.2
+        container_name: spring-boot-elasticsearch
+        ports:
+            - "8080:8080"
+        environment:
+            SPRING_ELASTICSEARCH_URIS: http://elasticsearch:9200
+        depends_on:
+            elasticsearch:
+                condition: service_healthy
+        networks:
+            - ${GLOBAL_NETWORK:-service}
+
+networks:
+    service:
+        driver: bridge
